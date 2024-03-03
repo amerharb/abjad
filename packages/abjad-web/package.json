@@ -1,6 +1,6 @@
 {
 	"name": "abjad-web",
-	"version": "0.5.1",
+	"version": "0.7.0",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -16,13 +16,16 @@
 		"@mui/joy": "^5.0.0-beta.11",
 		"@vercel/analytics": "^1.1.2",
 		"@vercel/speed-insights": "^1.0.9",
-		"abjad-convert": "0.5.0",
-		"next": "13.5.6",
-		"react": "^18",
-		"react-dom": "^18",
+		"abjad-convert": "file:../abjad-convert",
+		"next": "^14.1.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"react-select": "^5.8.0"
 	},
 	"devDependencies": {
-		"@types/react": "^18"
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^8.54.0",
+		"eslint-config-next": "^14.1.0"
 	}
 }

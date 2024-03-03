@@ -10,9 +10,10 @@ export default function Home() {
 	const [textBoxValue, setTextBoxValue] = useState('')
 	const [resultText, setResultText] = useState('')
 	const [fromValue, setFromValue] = useState<Abjad | undefined>(Abjad.Arabic)
-	const [toValue, setToValue] = useState<Abjad | undefined>(Abjad.ImperialAramaic)
+	const [toValue, setToValue] = useState<Abjad | undefined>(Abjad.IPA)
 
 	const options = [
+		{ value: Abjad.IPA, label: 'IPA' },
 		{ value: Abjad.Arabic, label: 'Arabic ابجد' },
 		{ value: Abjad.ImperialAramaic, label: 'Imperial Aramaic 𐡀𐡁𐡂𐡃' },
 		{ value: Abjad.OldSouthArabian, label: 'Old South Arabian 𐩱𐩨𐩴𐩵' },
@@ -29,7 +30,7 @@ export default function Home() {
 			id="fromDropdown"
 			isSearchable={false}
 			options={options}
-			defaultValue={options[0]}
+			defaultValue={options[1]}
 			onChange={(selectedOption) => {
 				setFromValue(selectedOption?.value)
 				if (!selectedOption?.value || !toValue) {
@@ -48,7 +49,7 @@ export default function Home() {
 			id="toDropdown"
 			isSearchable={false}
 			options={options}
-			defaultValue={options[1]}
+			defaultValue={options[0]}
 			onChange={(selectedOption) => {
 				setToValue(selectedOption?.value)
 				if (!fromValue || !selectedOption?.value) {

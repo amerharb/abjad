@@ -1,7 +1,7 @@
-[![Version](https://img.shields.io/badge/version-0.5.1-blue.svg)](https://github.com/amerharb/abjad/tree/abjad-web/version/0.5.1)
+[![Version](https://img.shields.io/badge/version-0.7.0-blue.svg)](https://github.com/amerharb/abjad/tree/abjad-web/version/0.7.0)
 # Abjad web page
 
-A simple web page for Abjad using Next.js.
+A simple web page for Abjad using Next.js v14.
 
 web: [abjad.amerharb.com]()
 
