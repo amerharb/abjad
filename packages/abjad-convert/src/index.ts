@@ -6,6 +6,7 @@ import { imperialAramaic } from './scripts/imperialAramaic/letters'
 import { ipa } from './scripts/ipa/letters'
 import { oldSouthArabian } from './scripts/oldSouthArabian/letters'
 import { phoenician } from './scripts/phoenician/letters'
+import { runic } from './scripts/runic/letters'
 import { syriac } from './scripts/syriac/letters'
 import { tifinagh } from './scripts/tifinagh/letters'
 import { ugaritic } from './scripts/ugaritic/letters'
@@ -34,6 +35,8 @@ export function getLetters(script: Abjad): readonly string[] {
 		return oldSouthArabian.letters
 	case Abjad.Phoenician:
 		return phoenician.letters
+	case Abjad.Runic:
+		return runic.letters
 	case Abjad.Syriac:
 		return syriac.letters
 	case Abjad.Tifinagh:

@@ -1,6 +1,6 @@
 {
 	"name": "abjad-convert",
-	"version": "0.9.0",
+	"version": "0.10.0",
 	"main": "dist/src/index.js",
 	"types": "dist/src/index.d.ts",
 	"files": [
@@ -29,6 +29,7 @@
 		"IPA",
 		"old-south-arabian",
 		"phoenician",
+		"runic",
 		"syriac",
 		"tifinagh",
 		"ugaritic"

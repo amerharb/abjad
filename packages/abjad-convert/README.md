@@ -1,9 +1,9 @@
 # Abjad Convert
 
-[![Version](https://img.shields.io/badge/version-0.9.0-blue.svg)](https://github.com/amerharb/abjad/tree/abjad-convert/version/0.9.0)
+[![Version](https://img.shields.io/badge/version-0.10.0-blue.svg)](https://github.com/amerharb/abjad/tree/abjad-convert/version/0.10.0)
 [![License: GPLv3](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
-![Coverage](https://raw.githubusercontent.com/amerharb/abjad/abjad-convert/version/0.9.0/packages/abjad-convert/badges/coverage.svg)
-![Github workflow](https://github.com/amerharb/abjad/actions/workflows/lint-test.yaml/badge.svg?branch=abjad-convert/version/0.9.0)
+![Coverage](https://raw.githubusercontent.com/amerharb/abjad/abjad-convert/version/0.10.0/packages/abjad-convert/badges/coverage.svg)
+![Github workflow](https://github.com/amerharb/abjad/actions/workflows/lint-test.yaml/badge.svg?branch=abjad-convert/version/0.10.0)
 
 **abjad-convert** is a package for converting Abjad alphabets phonetically.
 
@@ -14,6 +14,7 @@ Current supported alphabets:
 - IPA (International Phonetic Alphabet)
 - Old South Arabian
 - Phoenician
+- Runic
 - Syriac
 - Tifinagh
 - Uguritic
@@ -49,6 +50,9 @@ console.log(oldSouthArabianWord); // 𐩣𐩧𐩢𐩨𐩡
 
 const phoenicianWord = convert(arabicWord, Abjad.Arabic, Abjad.Phoenician);
 console.log(phoenicianWord); // 𐤌𐤓𐤇𐤁𐤀
+
+const runicWord = convert(arabicWord, Abjad.Arabic, Abjad.Runic);
+console.log(runicWord); // ᛗᚱᚻᛒᚫᚮ
 
 const syriacWord = convert(arabicWord, Abjad.Arabic, Abjad.Syriac);
 console.log(syriacWord); // ܡܪܚܒܐ

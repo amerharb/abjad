@@ -1,6 +1,10 @@
 # abjad-convert Changelog
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.10.0] 2024-08-31
+### Added
+- Support for Runic
+
 ## [0.9.0] 2024-05-15
 ### Added
 - Support Hanifi Rohingya

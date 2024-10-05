@@ -19,6 +19,7 @@ export default function Home() {
 		{ value: Abjad.ImperialAramaic, label: 'Imperial Aramaic 𐡀𐡁𐡂𐡃' },
 		{ value: Abjad.OldSouthArabian, label: 'Old South Arabian 𐩱𐩨𐩴𐩵' },
 		{ value: Abjad.Phoenician, label: 'Phoenician 𐤀𐤁𐤂𐤃' },
+		{ value: Abjad.Runic, label: 'Runic ᚫᚮᛒᛲᛞ' },
 		{ value: Abjad.Syriac, label: 'Syriac ܐܒܓܕ' },
 		{ value: Abjad.Tifinagh, label: 'Tifinagh ⴰⴱⵊⴷ' },
 		{ value: Abjad.Ugaritic, label: 'Ugaritic 𐎀𐎁𐎂𐎄' },

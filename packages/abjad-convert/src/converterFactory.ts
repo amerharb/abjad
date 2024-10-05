@@ -12,8 +12,10 @@ import { HanifiRohingyaToArabicConverter } from './scripts/hanifiRohingya/toArab
 import { HanifiRohingyaToIpaConverter } from './scripts/hanifiRohingya/toIpa'
 import { ImperialAramaicToArabicConverter } from './scripts/imperialAramaic/toArabic'
 import { IpaToArabicConverter } from './scripts/ipa/toArabic'
+import { IpaToRunicConverter } from './scripts/ipa/toRunic'
 import { OldSouthArabicToArabicConverter } from './scripts/oldSouthArabian/toArabic'
 import { PhoenicianToArabicConverter } from './scripts/phoenician/toArabic'
+import { RunicToIpaConverter } from './scripts/runic/toIpa'
 import { SyriacToArabicConverter } from './scripts/syriac/toArabic'
 import { TifinaghToArabicConverter } from './scripts/tifinagh/toArabic'
 import { UgariticToArabicConverter } from './scripts/ugaritic/toArabic'
@@ -31,8 +33,10 @@ const converters: IConverter[] = [
 	new HanifiRohingyaToIpaConverter(),
 	new ImperialAramaicToArabicConverter(),
 	new IpaToArabicConverter(),
+	new IpaToRunicConverter(),
 	new OldSouthArabicToArabicConverter(),
 	new PhoenicianToArabicConverter(),
+	new RunicToIpaConverter(),
 	new SyriacToArabicConverter(),
 	new TifinaghToArabicConverter(),
 	new UgariticToArabicConverter(),

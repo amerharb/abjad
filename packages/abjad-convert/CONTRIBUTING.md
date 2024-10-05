@@ -35,7 +35,16 @@ export const Ug = {
 ```
 
 - - `foo` an instance of `Script` class, which will be exported
-
+- -  in file `index.ts` return the letter of the new script in side exported function `getLetters()` as follows:
+```ts
+export function getLetters(script: Abjad): readonly string[] {
+	switch (script) {
+		// ...
+		case Abjad.Foo:
+			return foo.letters
+		// ...
+	}
+```
 for example, ugaritic looks like this:
 ```ts
 export const ugaritic = new Script(
@@ -114,8 +123,10 @@ export class ArabicToFooConverter extends DirectConverter {
 
 - Step #9: update for a new version
 - - update `CHANGELOG.md` with the new version number and the changes.
-- Step #10 update 
-- - `README.md` links and badges.
-- - version in `package.json` file.
+
+- Step #10
+- - update `README.md` links of badges in the top.
+- - update version in `package.json` file.
 - - run yarn to update `yarn.lock` files
 - - run test to update coverage badges
+- - update a document figure in `doc/converters.puml` file then generate new png image of `doc/converters.png`

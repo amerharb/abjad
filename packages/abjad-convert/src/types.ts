@@ -5,6 +5,7 @@ export enum Abjad {
 	IPA = 'ipa',
 	OldSouthArabian = 'old-south-arabian',
 	Phoenician = 'phoenician',
+	Runic = 'runic',
 	Syriac = 'syriac',
 	Tifinagh = 'tifinagh',
 	Ugaritic = 'ugaritic',
