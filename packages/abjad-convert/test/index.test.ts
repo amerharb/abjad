@@ -107,6 +107,14 @@ describe('index.ts', () => {
 				})
 			})
 		})
+		describe('from Nabataean', () => {
+			describe('to Arabic', () => {
+				it('convert 𐢀 𐢂  into ا ب ج', () => {
+					const actual = convert('𐢀 𐢂 𐢄', Abjad.Nabataean, Abjad.Arabic)
+					expect(actual).toEqual('ا ب ج')
+				})
+			})
+		})
 		describe('from OldSouthArabian', () => {
 			describe('to Arabic', () => {
 				it('convert \uD802\uDE71 \uD802\uDE68 \uD802\uDE74 into ا ب ج', () => {
@@ -252,12 +260,12 @@ describe('index.ts', () => {
 			})
 		})
 	})
+
 	describe('getLetters()', () => {
-		it('returns letters for all scripts', () => {
-			Object.values(Abjad).forEach((script) => {
-				const actual = getLetters(script)
-				expect(actual).not.toEqual([])
-			})
+		it.each(Object.values(Abjad))
+		('returns letters for %s script', (input) => {
+			const actual = getLetters(input)
+			expect(actual).not.toEqual([])
 		})
 	})
 })

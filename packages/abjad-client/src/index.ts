@@ -28,6 +28,12 @@ log(calmConvert(ipa, Abjad.IPA, Abjad.Arabic))
 log(`convert IPA text ${ipa} to Phoenician`)
 log(calmConvert(ipa, Abjad.IPA, Abjad.Phoenician))
 
+const nabataean = '𐢀 𐢂 𐢄 𐢅'
+log(`convert Nabataean text ${nabataean} to Arabic`)
+log(calmConvert(nabataean, Abjad.Nabataean, Abjad.Arabic))
+log(`convert Nabataean text ${nabataean} to Phoenician`)
+log(calmConvert(nabataean, Abjad.Nabataean, Abjad.Phoenician))
+
 const oldSouthArabian = '𐩱 𐩨 𐩴 𐩵'
 log(`convert OldSouthArabian text ${oldSouthArabian} to Arabic`)
 log(calmConvert(oldSouthArabian, Abjad.OldSouthArabian, Abjad.Arabic))
@@ -62,6 +68,7 @@ log('مرحبا')
 log(calmConvert('مرحبا', Abjad.Arabic, Abjad.HanifiRohingya))
 log(calmConvert('مرحبا', Abjad.Arabic, Abjad.ImperialAramaic))
 log(calmConvert('مرحبا', Abjad.Arabic, Abjad.IPA))
+log(calmConvert('مرحبا', Abjad.Arabic, Abjad.Nabataean))
 log(calmConvert('مرحبا', Abjad.Arabic, Abjad.Phoenician))
 log(calmConvert('مرحبا', Abjad.Arabic, Abjad.Runic))
 log(calmConvert('مرحبا', Abjad.Arabic, Abjad.Syriac))

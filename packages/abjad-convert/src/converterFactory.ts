@@ -3,6 +3,7 @@ import { IConverter } from './IConverter'
 import { ArabicToHanifiRohingyaConverter } from './scripts/arabic/toHanifiRohingys'
 import { ArabicToImperialAramaicConverter } from './scripts/arabic/toImperialAramaic'
 import { ArabicToIpaConverter } from './scripts/arabic/toIpa'
+import { ArabicToNabataeanConverter } from './scripts/arabic/toNabataean'
 import { ArabicToOldSouthArabianConverter } from './scripts/arabic/toOldSouthArabian'
 import { ArabicToPhoenicianConverter } from './scripts/arabic/toPhoenician'
 import { ArabicToSyriacConverter } from './scripts/arabic/toSyriac'
@@ -19,11 +20,13 @@ import { RunicToIpaConverter } from './scripts/runic/toIpa'
 import { SyriacToArabicConverter } from './scripts/syriac/toArabic'
 import { TifinaghToArabicConverter } from './scripts/tifinagh/toArabic'
 import { UgariticToArabicConverter } from './scripts/ugaritic/toArabic'
+import { NabataeanToArabicConverter } from './scripts/nabataean/toArabic'
 
 const converters: IConverter[] = [
 	new ArabicToHanifiRohingyaConverter(),
 	new ArabicToImperialAramaicConverter(),
 	new ArabicToIpaConverter(),
+	new ArabicToNabataeanConverter(),
 	new ArabicToOldSouthArabianConverter(),
 	new ArabicToPhoenicianConverter(),
 	new ArabicToSyriacConverter(),
@@ -34,6 +37,7 @@ const converters: IConverter[] = [
 	new ImperialAramaicToArabicConverter(),
 	new IpaToArabicConverter(),
 	new IpaToRunicConverter(),
+	new NabataeanToArabicConverter(),
 	new OldSouthArabicToArabicConverter(),
 	new PhoenicianToArabicConverter(),
 	new RunicToIpaConverter(),
@@ -59,6 +63,9 @@ export function getConverter(from: Abjad, to: Abjad): IConverter {
 					from,
 					to,
 					numberOfConnection: fromConverter.numberOfConnection + toConverter.numberOfConnection,
+					getConverterPath(): Abjad[] {
+						return [from, fromConverter.to, to]
+					},
 					convert(text: string): string {
 						return toConverter.convert(fromConverter.convert(text))
 					},
@@ -76,6 +83,9 @@ export function getConverter(from: Abjad, to: Abjad): IConverter {
 						from,
 						to,
 						numberOfConnection: fromConverter.numberOfConnection + middleConverter.numberOfConnection + toConverter.numberOfConnection,
+						getConverterPath(): Abjad[] {
+							return [from, fromConverter.to, middleConverter.to, to]
+						},
 						convert(text: string): string {
 							return toConverter.convert(middleConverter.convert(fromConverter.convert(text)))
 						},

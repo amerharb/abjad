@@ -4,6 +4,7 @@ import { arabic } from './scripts/arabic/letters'
 import { hanifiRohingya } from './scripts/hanifiRohingya/letters'
 import { imperialAramaic } from './scripts/imperialAramaic/letters'
 import { ipa } from './scripts/ipa/letters'
+import { nabataean } from './scripts/nabataean/letters'
 import { oldSouthArabian } from './scripts/oldSouthArabian/letters'
 import { phoenician } from './scripts/phoenician/letters'
 import { runic } from './scripts/runic/letters'
@@ -31,6 +32,8 @@ export function getLetters(script: Abjad): readonly string[] {
 		return imperialAramaic.letters
 	case Abjad.IPA:
 		return ipa.letters
+	case Abjad.Nabataean:
+		return nabataean.letters
 	case Abjad.OldSouthArabian:
 		return oldSouthArabian.letters
 	case Abjad.Phoenician:

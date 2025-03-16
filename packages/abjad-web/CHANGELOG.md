@@ -2,6 +2,12 @@
 
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.11.0] 2024-11-22
+### Changed
+- Use abjad-convert v0.11.0-next.2
+### Added
+- Support Nabataean
+
 ## [0.10.0] 2024-08-31
 ### Changed
 - Use abjad-convert v0.10.0
