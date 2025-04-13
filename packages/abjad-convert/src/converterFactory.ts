@@ -1,6 +1,7 @@
 import { Abjad } from './types'
 import { IConverter } from './IConverter'
 import { ArabicToHanifiRohingyaConverter } from './scripts/arabic/toHanifiRohingys'
+import { ArabicToHebrewConverter } from './scripts/arabic/toHebrew'
 import { ArabicToImperialAramaicConverter } from './scripts/arabic/toImperialAramaic'
 import { ArabicToIpaConverter } from './scripts/arabic/toIpa'
 import { ArabicToNabataeanConverter } from './scripts/arabic/toNabataean'
@@ -25,6 +26,7 @@ import { NabataeanToArabicConverter } from './scripts/nabataean/toArabic'
 
 const converters: IConverter[] = [
 	new ArabicToHanifiRohingyaConverter(),
+	new ArabicToHebrewConverter(),
 	new ArabicToImperialAramaicConverter(),
 	new ArabicToIpaConverter(),
 	new ArabicToNabataeanConverter(),
