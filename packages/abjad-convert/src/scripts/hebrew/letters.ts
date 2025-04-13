@@ -36,7 +36,7 @@ export const He = {
 	Alef: letters[0], // א
 	Bet: letters[1], // ב
 	Gimel: letters[2], // ג
-	Delta: letters[3], // ד
+	Dalet: letters[3], // ד
 	He: letters[4], // ה
 	Vav: letters[5], // ו
 	Zayin: letters[6], // ז
