@@ -12,6 +12,9 @@ jobs:
   publish:
     name: Publish next to npm
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: fill package name
         run: |
@@ -75,4 +78,4 @@ jobs:
         if: ${{ env.PACKAGE_NAME == 'abjad-convert' }}
         run: yarn workspace abjad-convert npm publish --access public --tag next
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.ABJAD_CONVERT_PUBLISH_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ''  # no token needed
