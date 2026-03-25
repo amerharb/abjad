@@ -21,7 +21,7 @@ export class ArabicToHebrewConverter extends DirectConverter {
 			[Ar.Ta, He.Tav], // ت -> ת
 			[Ar.Tha, He.Tav], // ث -> ת
 			[Ar.Jeem, He.Gimel], // ج -> ג
-			[Ar.H7aa, He.He], // ح -> ה
+			[Ar.H7aa, He.Het], // ح -> ח
 			[Ar.Khaa, He.He], // خ -> ה
 			[Ar.Dal, He.Dalet], // د -> ד
 			[Ar.Thal, He.Dalet], // ذ -> ד
@@ -31,7 +31,7 @@ export class ArabicToHebrewConverter extends DirectConverter {
 			[Ar.Sheen, He.Shin], // ش -> ש
 			[Ar.Sad, He.Tsadi], // ص -> צ
 			[Ar.Dad, He.Dalet], // ض -> ד
-			[Ar.TTa, He.Tav], // ط -> ת
+			[Ar.TTa, He.Tet], // ط -> ט
 			[Ar.THa, He.Tav], // ظ -> ת
 			[Ar.Ayn, He.Ayin], // ع -> ע
 			[Ar.Ghayn, He.Ayin], // غ -> ע
