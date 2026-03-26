@@ -41,6 +41,9 @@ const arabicWord = 'مرحبا';
 const hanifiRohingyaWord = convert(arabicWord, Abjad.Arabic, Abjad.HanifiRohingya);
 console.log(hanifiRohingyaWord); // 𐴔𐴌𐴇𐴁𐴀
 
+const hebrewWord = convert(arabicWord, Abjad.Arabic, Abjad.Hebrew);
+console.log(hebrewWord); // מרחבא
+
 const imperialAramaicWord = convert(arabicWord, Abjad.Arabic, Abjad.ImperialAramaic);
 console.log(imperialAramaicWord); // 𐡌𐡓𐡇𐡁𐡀
 
