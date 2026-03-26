@@ -3,6 +3,10 @@ on:
   release:
     types: [ prereleased ]
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   publish:
     uses: ./.github/workflows/publish.yaml
