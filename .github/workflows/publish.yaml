@@ -1,11 +1,7 @@
 name: Publish
 on:
-  workflow_call:
-    inputs:
-      npm-tag:
-        description: 'npm dist-tag to publish under (next or latest)'
-        required: true
-        type: string
+  release:
+    types: [ prereleased, released ]
 
 env:
   TAG_NAME: ${{ github.event.release.tag_name }}
@@ -14,13 +10,23 @@ env:
 
 jobs:
   publish:
-    name: Publish ${{ inputs.npm-tag }} to npm
+    name: Publish to npm
     runs-on: ubuntu-latest
     environment: npm-publish
     permissions:
       contents: read
       id-token: write
     steps:
+      - name: set npm tag
+        run: |
+          if [[ "${{ github.event.action }}" == "prereleased" ]]; then
+              NPM_TAG="next"
+          else
+              NPM_TAG="latest"
+          fi
+          echo "🏷️ npm tag: $NPM_TAG"
+          echo "NPM_TAG=$NPM_TAG" >> $GITHUB_ENV
+
       - name: fill package name
         run: |
           if [[ $TAG_NAME =~ ^abjad-convert\/v.* ]]; then
@@ -43,13 +49,13 @@ jobs:
       - name: validate tag name
         run: |
           SEMVER="([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)"
-          if [[ "${{ inputs.npm-tag }}" == "next" ]]; then
+          if [[ "$NPM_TAG" == "next" ]]; then
               PATTERN="^$PACKAGE_NAME\/v${SEMVER}-next\.([0-9]|[1-9][0-9]*)$"
           else
               PATTERN="^$PACKAGE_NAME\/v${SEMVER}$"
           fi
           if [[ ! $TAG_NAME =~ $PATTERN ]]; then
-              echo "❌ Invalid tag name: $TAG_NAME not suitable for @${{ inputs.npm-tag }} tag"
+              echo "❌ Invalid tag name: $TAG_NAME not suitable for @$NPM_TAG tag"
               exit 1
           else
               echo "✅ Valid tag name: $TAG_NAME"
@@ -58,16 +64,16 @@ jobs:
       - name: validate version in package.json
         run: |
           SEMVER="([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)"
-          if [[ "${{ inputs.npm-tag }}" == "next" ]]; then
+          if [[ "$NPM_TAG" == "next" ]]; then
               PATTERN="^${SEMVER}-next\.([0-9]|[1-9][0-9]*)$"
           else
               PATTERN="^${SEMVER}$"
           fi
           if [[ ! $PACKAGE_VERSION =~ $PATTERN ]]; then
-              echo "❌ Invalid version name: $PACKAGE_VERSION not suitable for @${{ inputs.npm-tag }} publish"
+              echo "❌ Invalid version name: $PACKAGE_VERSION not suitable for @$NPM_TAG publish"
               exit 1
           else
-              echo "✅ Valid @${{ inputs.npm-tag }} version: $PACKAGE_VERSION"
+              echo "✅ Valid @$NPM_TAG version: $PACKAGE_VERSION"
           fi
 
       - name: check if version in package.json is matching tag name
@@ -83,6 +89,7 @@ jobs:
         with:
           node-version: 22.x
           registry-url: https://registry.npmjs.org
+          always-auth: true
           cache: yarn
 
       - run: yarn workspaces foreach --all install --immutable
@@ -93,4 +100,4 @@ jobs:
       - name: publish abjad-convert to npm
         if: ${{ env.PACKAGE_NAME == 'abjad-convert' }}
         working-directory: packages/abjad-convert
-        run: npm publish --access public --tag ${{ inputs.npm-tag }} --provenance
+        run: npm publish --access public --tag ${{ env.NPM_TAG }} --provenance
