@@ -1,0 +1,104 @@
+name: Publish
+on:
+  release:
+    types: [ prereleased, released ]
+
+env:
+  TAG_NAME: ${{ github.event.release.tag_name }}
+  PACKAGE_NAME: "" # to be filled later
+  PACKAGE_VERSION: "" # to be filled later after checkout
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: set npm tag
+        run: |
+          if [[ "${{ github.event.action }}" == "prereleased" ]]; then
+              NPM_TAG="next"
+          else
+              NPM_TAG="latest"
+          fi
+          echo "🏷️ npm tag: $NPM_TAG"
+          echo "NPM_TAG=$NPM_TAG" >> $GITHUB_ENV
+
+      - name: fill package name
+        run: |
+          if [[ $TAG_NAME =~ ^abjad-convert\/v.* ]]; then
+              PACKAGE_NAME="abjad-convert"
+          else
+              echo "❌ tag name: $TAG_NAME doesn't point to any publishable package"
+              exit 1
+          fi
+          echo "📦 Package name: $PACKAGE_NAME"
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v4
+
+      - name: fill package version
+        run: |
+          PACKAGE_VERSION=$(jq -r '.version' packages/$PACKAGE_NAME/package.json)
+          echo "🔢 Package version: $PACKAGE_VERSION"
+          echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> $GITHUB_ENV
+
+      - name: validate tag name
+        run: |
+          SEMVER="([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)"
+          if [[ "$NPM_TAG" == "next" ]]; then
+              PATTERN="^$PACKAGE_NAME\/v${SEMVER}-next\.([0-9]|[1-9][0-9]*)$"
+          else
+              PATTERN="^$PACKAGE_NAME\/v${SEMVER}$"
+          fi
+          if [[ ! $TAG_NAME =~ $PATTERN ]]; then
+              echo "❌ Invalid tag name: $TAG_NAME not suitable for @$NPM_TAG tag"
+              exit 1
+          else
+              echo "✅ Valid tag name: $TAG_NAME"
+          fi
+
+      - name: validate version in package.json
+        run: |
+          SEMVER="([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)\.([0-9]|[1-9][0-9]*)"
+          if [[ "$NPM_TAG" == "next" ]]; then
+              PATTERN="^${SEMVER}-next\.([0-9]|[1-9][0-9]*)$"
+          else
+              PATTERN="^${SEMVER}$"
+          fi
+          if [[ ! $PACKAGE_VERSION =~ $PATTERN ]]; then
+              echo "❌ Invalid version name: $PACKAGE_VERSION not suitable for @$NPM_TAG publish"
+              exit 1
+          else
+              echo "✅ Valid @$NPM_TAG version: $PACKAGE_VERSION"
+          fi
+
+      - name: check if version in package.json is matching tag name
+        run: |
+          if [[ "$PACKAGE_NAME/v$PACKAGE_VERSION" != $TAG_NAME ]]; then
+              echo "❌ Version in package.json of $PACKAGE_NAME: $PACKAGE_VERSION is not matching with tag name: $TAG_NAME"
+              exit 1
+          else
+              echo "✅ Version: $PACKAGE_VERSION in package.json of $PACKAGE_NAME is matching with tag name: $TAG_NAME"
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          # node 24.x ships npm >= 11.5.1 (first in 24.5.0), required for Trusted
+          # Publishing (OIDC) token-less auth. node 22 ships npm 10.x, which can
+          # sign provenance but cannot authenticate the publish.
+          node-version: 24.x
+          registry-url: https://registry.npmjs.org
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm test
+
+      - name: publish abjad-convert to npm
+        if: ${{ env.PACKAGE_NAME == 'abjad-convert' }}
+        working-directory: packages/abjad-convert
+        run: npm publish --access public --tag ${{ env.NPM_TAG }} --provenance

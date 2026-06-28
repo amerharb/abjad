@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        node-version: [ 20.x, 18.x ]
+        node-version: [ 24.x, 22.x, 20.x ]
 
     steps:
       - uses: actions/checkout@v4
@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
-      - run: yarn workspaces foreach --all install --immutable
-      - run: yarn lint
-      - run: yarn build
-      - run: yarn test
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm test

@@ -1,6 +1,10 @@
 # Changelog
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.4.0]  2024-01-06
+### Change
+- change package manager from yarn to npm
+
 ## [0.3.0]  2024-01-06
 ### Added
 - abjad-web package

@@ -1,6 +1,10 @@
 # abjad-convert Changelog
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.12.0] 2025-03-16
+### Added
+- Support for Hebrew
+
 ## [0.11.0] 2024-11-01
 ### Added
 - Support for Nabataean

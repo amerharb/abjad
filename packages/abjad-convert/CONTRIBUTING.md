@@ -65,7 +65,7 @@ export const ugaritic = new Script(
   The algorithm for converting will look first for 1-step converter (direct converter) the one that converts from the source to the target, 
   in case there isn't any it will look for 2-steps approach where it can find a middle script,
   after that it will try 3-steps approach, after that it won't look for 4 or more steps, it will basically throw an error.
-  As of version 0.11.0, scripts are connected as follows:
+  As of version 0.12.0, scripts are connected as follows:
   ![converters.png](doc/converters.png)
 - - Adding to Arabic: Add file to `foo` folder with name `toArabic.ts` that include a class called FooToArabicConverter that implements `IConverter` interface.
     it should look like this:
@@ -128,6 +128,6 @@ export class ArabicToFooConverter extends DirectConverter {
 - Step #10
 - - update `README.md` links of badges in the top.
 - - update version in `package.json` file.
-- - run yarn to update `yarn.lock` files
+- - run `npm install` to update `package-lock.json`
 - - run test to update coverage badges
 - - update a document figure in `doc/converters.puml` file then generate new png image of `doc/converters.png`

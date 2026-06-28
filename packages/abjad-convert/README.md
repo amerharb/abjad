@@ -1,15 +1,16 @@
 # Abjad Convert
 
-[![Version](https://img.shields.io/badge/version-0.11.0-blue.svg)](https://github.com/amerharb/abjad/tree/abjad-convert/version/0.11.0)
+[![Version](https://img.shields.io/badge/version-0.12.0-blue.svg)](https://github.com/amerharb/abjad/tree/abjad-convert/version/0.12.0)
 [![License: GPLv3](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
-![Coverage](https://raw.githubusercontent.com/amerharb/abjad/abjad-convert/version/0.11.0/packages/abjad-convert/badges/coverage.svg)
-![Github workflow](https://github.com/amerharb/abjad/actions/workflows/lint-test.yaml/badge.svg?branch=abjad-convert/version/0.11.0)
+![Coverage](https://raw.githubusercontent.com/amerharb/abjad/abjad-convert/version/0.12.0/packages/abjad-convert/badges/coverage.svg)
+![Github workflow](https://github.com/amerharb/abjad/actions/workflows/lint-test.yaml/badge.svg?branch=abjad-convert/version/0.12.0)
 
 **abjad-convert** is a package for converting Abjad alphabets phonetically.
 
 Current supported alphabets:
 - Arabic
 - Hanifi Rohingya
+- Hebrew
 - Imperial Aramaic
 - IPA (International Phonetic Alphabet)
 - Nabataean
@@ -26,11 +27,6 @@ npm:
 npm i abjad-convert
 ```
 
-yarn:
-```shell
-yarn add abjad-convert
-```
-
 Type Script:
 ```js
 import { convert, Abjad } from 'abjad-convert';
@@ -39,6 +35,9 @@ const arabicWord = 'مرحبا';
 
 const hanifiRohingyaWord = convert(arabicWord, Abjad.Arabic, Abjad.HanifiRohingya);
 console.log(hanifiRohingyaWord); // 𐴔𐴌𐴇𐴁𐴀
+
+const hebrewWord = convert(arabicWord, Abjad.Arabic, Abjad.Hebrew);
+console.log(hebrewWord); // מרחבא
 
 const imperialAramaicWord = convert(arabicWord, Abjad.Arabic, Abjad.ImperialAramaic);
 console.log(imperialAramaicWord); // 𐡌𐡓𐡇𐡁𐡀

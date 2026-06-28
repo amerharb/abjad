@@ -2,6 +2,12 @@
 
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.12.0] 2024-11-22
+### Changed
+- Use abjad-convert v0.12.0-next.19
+### Added
+- Support Hebrew
+
 ## [0.11.0] 2024-11-22
 ### Changed
 - Use abjad-convert v0.11.0-next.2
