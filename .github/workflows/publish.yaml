@@ -86,9 +86,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          # node 24.x ships npm >= 11.5.1 (first in 24.5.0), required for Trusted
+          # Publishing (OIDC) token-less auth. node 22 ships npm 10.x, which can
+          # sign provenance but cannot authenticate the publish.
+          node-version: 24.x
           registry-url: https://registry.npmjs.org
-          always-auth: true
           cache: npm
 
       - run: npm ci
