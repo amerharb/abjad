@@ -128,6 +128,6 @@ export class ArabicToFooConverter extends DirectConverter {
 - Step #10
 - - update `README.md` links of badges in the top.
 - - update version in `package.json` file.
-- - run yarn to update `yarn.lock` files
+- - run `npm install` to update `package-lock.json`
 - - run test to update coverage badges
 - - update a document figure in `doc/converters.puml` file then generate new png image of `doc/converters.png`

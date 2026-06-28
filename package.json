@@ -10,11 +10,11 @@
 	"author": "Amer Harb",
 	"license": "ISC",
 	"scripts": {
-		"lint": "yarn workspaces foreach --all -p run lint",
-		"lint:fix": "yarn workspaces foreach --all -p run lint:fix",
-		"build": "yarn workspaces foreach --all run build",
-		"test": "yarn workspaces foreach --all -p run test",
-		"start": "yarn workspaces foreach --all -p run start"
+		"lint": "npm run lint --workspaces --if-present",
+		"lint:fix": "npm run lint:fix --workspaces --if-present",
+		"build": "npm run build --workspaces --if-present",
+		"test": "npm run test --workspaces --if-present",
+		"start": "npm run start --workspaces --if-present"
 	},
 	"devDependencies": {
 		"@next/eslint-plugin-next": "^14.0.4",
@@ -30,7 +30,7 @@
 	},
 	"engines": {
 		"node": ">=18.0.0",
-		"yarn": ">=4.0.0"
+		"npm": ">=9.0.0"
 	},
-	"packageManager": "yarn@4.1.0"
+	"packageManager": "npm@10.9.0"
 }

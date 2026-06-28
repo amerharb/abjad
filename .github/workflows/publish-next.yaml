@@ -67,12 +67,12 @@ jobs:
           node-version: 22.x
           registry-url: https://registry.npmjs.org
           always-auth: true
-          cache: yarn
+          cache: npm
 
-      - run: yarn workspaces foreach --all install --immutable
-      - run: yarn lint
-      - run: yarn build
-      - run: yarn test
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm test
 
       - name: publish abjad-convert @next to npm
         if: ${{ env.PACKAGE_NAME == 'abjad-convert' }}

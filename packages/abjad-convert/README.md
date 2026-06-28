@@ -27,11 +27,6 @@ npm:
 npm i abjad-convert
 ```
 
-yarn:
-```shell
-yarn add abjad-convert
-```
-
 Type Script:
 ```js
 import { convert, Abjad } from 'abjad-convert';
