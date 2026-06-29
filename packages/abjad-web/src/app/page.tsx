@@ -4,7 +4,22 @@ import { useState } from 'react'
 import Select from 'react-select'
 import { Abjad, convert, getLetters } from 'abjad-convert'
 import OnScreenKeyboard from '@/components/OnScreenKeyboard'
+import ThemeToggle from '@/components/ThemeToggle'
 import Image from 'next/image'
+
+// Theme react-select via CSS variables so its control/menu follow the color scheme.
+const selectStyles = {
+	control: (base) => ({ ...base, backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }),
+	menu: (base) => ({ ...base, backgroundColor: 'var(--surface)' }),
+	option: (base, state) => ({
+		...base,
+		backgroundColor: state.isFocused ? 'var(--surface-hover)' : 'var(--surface)',
+		color: 'var(--fg)',
+	}),
+	singleValue: (base) => ({ ...base, color: 'var(--fg)' }),
+	input: (base) => ({ ...base, color: 'var(--fg)' }),
+	placeholder: (base) => ({ ...base, color: 'var(--muted)' }),
+}
 
 const options = [
 	{ value: Abjad.IPA, label: 'IPA' },
@@ -29,7 +44,9 @@ const FromSelect = ({ setFromValue, toValue, textBoxValue, setResultText }) => (
 		</label>
 		<Select
 			id="fromDropdown"
+			instanceId="fromDropdown"
 			isSearchable={false}
+			styles={selectStyles}
 			options={options}
 			defaultValue={options[0]}
 			onChange={(selectedOption) => {
@@ -50,7 +67,9 @@ const ToSelect = ({ setToValue, fromValue, textBoxValue, setResultText }) => (
 		</label>
 		<Select
 			id="toDropdown"
+			instanceId="toDropdown"
 			isSearchable={false}
+			styles={selectStyles}
 			options={options}
 			defaultValue={options[1]}
 			onChange={(selectedOption) => {
@@ -71,6 +90,7 @@ export default function Home() {
 
 	return (
 		<main style={{ textAlign: 'center', padding: '20px' }}>
+			<ThemeToggle/>
 			<h1>Abjad Converter</h1>
 			<FromSelect
 				setFromValue={setFromValue}
@@ -143,7 +163,7 @@ export default function Home() {
 				<br/>
 				You can find the source code on{' '}
 				<a href="https://www.github.com/amerharb/abjad" style={{ textDecoration: 'none' }}>
-					<Image src="/images/Github-logo.svg" alt="GitHub" width={32} height={32}/>
+					<Image className="github-logo" src="/images/Github-logo.svg" alt="GitHub" width={32} height={32}/>
 				</a>
 				<br/>
 				You welcome to contribute to the project.

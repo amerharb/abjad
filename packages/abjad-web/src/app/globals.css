@@ -1,0 +1,73 @@
+/*
+ * Color theming. Colors resolve via CSS `light-dark()`, driven by `color-scheme`.
+ * Default `color-scheme: light dark` follows the OS; the theme toggle overrides it
+ * by setting `data-theme` on <html> (see ThemeToggle + the init script in layout).
+ */
+:root {
+	color-scheme: light dark;
+
+	--bg: light-dark(#ffffff, #121212);
+	--fg: light-dark(#1a1a1a, #e6e6e6);
+	--muted: light-dark(#555555, #b0b0b0);
+	--border: light-dark(#cccccc, #3a3a3a);
+	--surface: light-dark(#ffffff, #1e1e1e);
+	--surface-hover: light-dark(#ececec, #2c2c2c);
+	--button-bg: light-dark(#f0f0f0, #2a2a2a);
+	--button-fg: light-dark(#1a1a1a, #e6e6e6);
+	--key-special-bg: light-dark(lightsteelblue, #3a4d6b);
+	--link: light-dark(#0066cc, #6db3f2);
+}
+
+:root[data-theme='light'] {
+	color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+	color-scheme: dark;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--fg);
+}
+
+button {
+	background-color: var(--button-bg);
+	color: var(--button-fg);
+	border: 1px solid var(--border);
+}
+
+button:hover {
+	background-color: var(--surface-hover);
+}
+
+textarea,
+input {
+	background-color: var(--surface);
+	color: var(--fg);
+	border: 1px solid var(--border);
+}
+
+textarea::placeholder {
+	color: var(--muted);
+}
+
+a {
+	color: var(--link);
+}
+
+hr {
+	border: none;
+	border-top: 1px solid var(--border);
+}
+
+/* The GitHub mark is near-black (#24292E); invert it so it stays visible on dark. */
+:root[data-theme='dark'] .github-logo {
+	filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme='light']) .github-logo {
+		filter: invert(1);
+	}
+}
