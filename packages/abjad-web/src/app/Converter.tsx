@@ -104,41 +104,43 @@ export default function Converter({ from, to }: { from?: string; to?: string }) 
 		<main style={{ textAlign: 'center', padding: '20px' }}>
 			<ThemeToggle/>
 			<h1>Abjad Converter</h1>
-			<FromSelect
-				setFromValue={setFromValue}
-				toValue={toValue}
-				textBoxValue={textBoxValue}
-				setResultText={setResultText}
-				defaultOption={optionByValue(initialFrom)}
-			/>
-			<OnScreenKeyboard
-				letters={fromValue ? getLetters(fromValue) : []}
-				onClickLetter={(letter) => {
-					const newTextBoxValue = textBoxValue + letter
-					setTextBoxValue(newTextBoxValue)
-					if (!fromValue || !toValue) return
-					const result = convert(newTextBoxValue, fromValue, toValue)
-					setResultText(result)
-				}}
-				onClearAll={() => {
-					setTextBoxValue('')
-					setResultText('')
-				}}
-				onBackSpace={() => {
-					const newTextBoxValue = textBoxValue.slice(0, -1)
-					setTextBoxValue(newTextBoxValue)
-					if (!fromValue || !toValue) return
-					const result = convert(newTextBoxValue, fromValue, toValue)
-					setResultText(result)
-				}}
-			/>
-			<ToSelect
-				setToValue={setToValue}
-				fromValue={fromValue}
-				textBoxValue={textBoxValue}
-				setResultText={setResultText}
-				defaultOption={optionByValue(initialTo)}
-			/>
+			<div className="converter-controls">
+				<FromSelect
+					setFromValue={setFromValue}
+					toValue={toValue}
+					textBoxValue={textBoxValue}
+					setResultText={setResultText}
+					defaultOption={optionByValue(initialFrom)}
+				/>
+				<OnScreenKeyboard
+					letters={fromValue ? getLetters(fromValue) : []}
+					onClickLetter={(letter) => {
+						const newTextBoxValue = textBoxValue + letter
+						setTextBoxValue(newTextBoxValue)
+						if (!fromValue || !toValue) return
+						const result = convert(newTextBoxValue, fromValue, toValue)
+						setResultText(result)
+					}}
+					onClearAll={() => {
+						setTextBoxValue('')
+						setResultText('')
+					}}
+					onBackSpace={() => {
+						const newTextBoxValue = textBoxValue.slice(0, -1)
+						setTextBoxValue(newTextBoxValue)
+						if (!fromValue || !toValue) return
+						const result = convert(newTextBoxValue, fromValue, toValue)
+						setResultText(result)
+					}}
+				/>
+				<ToSelect
+					setToValue={setToValue}
+					fromValue={fromValue}
+					textBoxValue={textBoxValue}
+					setResultText={setResultText}
+					defaultOption={optionByValue(initialTo)}
+				/>
+			</div>
 			<label htmlFor="editTextBox" style={{ marginRight: '10px' }}>
 				Enter Text:
 			</label>

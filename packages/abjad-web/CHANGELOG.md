@@ -5,6 +5,7 @@
 ## [0.12.1] 2026-06-29
 ### Changed
 - Use abjad-convert v0.12.0
+- Responsive layout: on wide screens "From" and "To" sit side by side with the on-screen keyboard spanning underneath (still stacked vertically on mobile)
 ### Added
 - Support Dark Mode
 - Preselect "From" and "To" scripts from `from` and `to` URL query parameters (e.g. `?from=ipa&to=arabic`)
