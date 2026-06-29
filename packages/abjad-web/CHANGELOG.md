@@ -8,7 +8,7 @@
 - Responsive layout: on wide screens "From" and "To" sit side by side with the on-screen keyboard spanning underneath (still stacked vertically on mobile)
 ### Added
 - Support Dark Mode
-- Preselect "From" and "To" scripts from `from` and `to` URL query parameters (e.g. `?from=ipa&to=arabic`)
+- Preselect "From"/"To" scripts and prefill the input from `from`, `to` and `text` URL query parameters (e.g. `?from=ipa&to=arabic&text=salam`)
 ### Fixed
 - Give the react-select dropdowns a stable `instanceId` to avoid an SSR hydration id mismatch
 

@@ -91,12 +91,21 @@ const ToSelect = ({ setToValue, fromValue, textBoxValue, setResultText, defaultO
 	</div>
 )
 
-export default function Converter({ from, to }: { from?: string; to?: string }) {
+export default function Converter({ from, to, text }: { from?: string; to?: string; text?: string }) {
 	const initialFrom = parseAbjad(from) ?? Abjad.IPA
 	const initialTo = parseAbjad(to) ?? Abjad.Arabic
+	const initialText = text ?? ''
 
-	const [textBoxValue, setTextBoxValue] = useState('')
-	const [resultText, setResultText] = useState('')
+	const [textBoxValue, setTextBoxValue] = useState(initialText)
+	const [resultText, setResultText] = useState(() => {
+		if (!initialText) return ''
+		try {
+			return convert(initialText, initialFrom, initialTo)
+		} catch {
+			// Unsupported from/to pair — leave the result empty rather than crashing render.
+			return ''
+		}
+	})
 	const [fromValue, setFromValue] = useState<Abjad | undefined>(initialFrom)
 	const [toValue, setToValue] = useState<Abjad | undefined>(initialTo)
 
