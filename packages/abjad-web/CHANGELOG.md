@@ -2,6 +2,12 @@
 
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.12.1] 2026-06-29
+### Changed
+- Use abjad-convert v0.12.0
+### Added
+- Support Dark Mode
+
 ## [0.12.0] 2024-11-22
 ### Changed
 - Use abjad-convert v0.12.0-next.19
