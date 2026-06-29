@@ -7,6 +7,9 @@
 - Use abjad-convert v0.12.0
 ### Added
 - Support Dark Mode
+- Preselect "From" and "To" scripts from `from` and `to` URL query parameters (e.g. `?from=ipa&to=arabic`)
+### Fixed
+- Give the react-select dropdowns a stable `instanceId` to avoid an SSR hydration id mismatch
 
 ## [0.12.0] 2024-11-22
 ### Changed
