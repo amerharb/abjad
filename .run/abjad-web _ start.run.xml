@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="abjad-web &gt; start" type="js.build_tools.npm" nameIsGenerated="true">
+    <package-json value="$PROJECT_DIR$/packages/abjad-web/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="start" />
+    </scripts>
+    <node-interpreter value="project" />
+    <package-manager value="$USER_HOME$/.nvm/versions/node/v24.14.0/bin/npm" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>
