@@ -1,7 +1,8 @@
+import './globals.css'
 import Head from 'next/head'
 import { Analytics } from '@vercel/analytics/react'
 import { Inter } from 'next/font/google'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import React from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -10,9 +11,19 @@ export const metadata: Metadata = {
 	title: 'Abjad web',
 }
 
+export const viewport: Viewport = {
+	themeColor: [
+		{ media: '(prefers-color-scheme: light)', color: '#ffffff' },
+		{ media: '(prefers-color-scheme: dark)', color: '#121212' },
+	],
+}
+
+// Apply the saved theme before first paint to avoid a flash of the wrong colors.
+const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}})()`
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<Head>
 				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
@@ -20,9 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<link rel="manifest" href="/site.webmanifest"/>
 				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/>
 				<meta name="msapplication-TileColor" content="#da532c"/>
-				<meta name="theme-color" content="#ffffff"/>
 			</Head>
 			<body className={inter.className}>
+				<script dangerouslySetInnerHTML={{ __html: themeInit }}/>
 				{children}
 				<Analytics/>
 			</body>

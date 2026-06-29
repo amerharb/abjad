@@ -2,6 +2,16 @@
 
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.12.1] 2026-06-29
+### Changed
+- Use abjad-convert v0.12.0
+- Responsive layout: on wide screens "From" and "To" sit side by side with the on-screen keyboard spanning underneath (still stacked vertically on mobile)
+### Added
+- Support Dark Mode
+- Preselect "From"/"To" scripts and prefill the input from `from`, `to` and `text` URL query parameters (e.g. `?from=ipa&to=arabic&text=salam`)
+### Fixed
+- Give the react-select dropdowns a stable `instanceId` to avoid an SSR hydration id mismatch
+
 ## [0.12.0] 2024-11-22
 ### Changed
 - Use abjad-convert v0.12.0-next.19

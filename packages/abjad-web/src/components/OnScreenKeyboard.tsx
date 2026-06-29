@@ -19,17 +19,17 @@ const OnScreenKeyboard: FC<Props> = ({ letters, onClickLetter, onBackSpace, onCl
 		}
 		<button
 			key={`btn_space`}
-			style={{ marginLeft: '10px', backgroundColor: 'lightsteelblue' }}
+			style={{ marginLeft: '10px', backgroundColor: 'var(--key-special-bg)' }}
 			onClick={() => onClickLetter(' ')}>␣
 		</button>
 		<button
 			key={`btn_backSpace`}
-			style={{ marginLeft: '2px', backgroundColor: 'lightsteelblue' }}
+			style={{ marginLeft: '2px', backgroundColor: 'var(--key-special-bg)' }}
 			onClick={onBackSpace}>&#x232B;
 		</button>
 		<button
 			key={`btn_clearAll`}
-			style={{ marginLeft: '2px', backgroundColor: 'lightsteelblue' }}
+			style={{ marginLeft: '2px', backgroundColor: 'var(--key-special-bg)' }}
 			onClick={onClearAll}>❌
 		</button>
 	</div>

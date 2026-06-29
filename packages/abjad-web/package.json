@@ -1,6 +1,6 @@
 {
 	"name": "abjad-web",
-	"version": "0.12.0",
+	"version": "0.12.1",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -15,7 +15,7 @@
 		"@emotion/styled": "11.11.0",
 		"@mui/joy": "5.0.0-beta.21",
 		"@vercel/analytics": "1.1.2",
-		"abjad-convert": "0.12.0-next.19",
+		"abjad-convert": "0.12.0",
 		"next": "16.2.9",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
