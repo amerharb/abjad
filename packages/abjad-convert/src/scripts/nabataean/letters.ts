@@ -38,7 +38,7 @@ const letters = [
 	String.fromCodePoint(0x1089B), /** #27 𐢛 U+1089B NABATEAEN LETTER Resh */
 	String.fromCodePoint(0x1089C), /** #28 𐢜 U+1089C NABATEAEN LETTER Final Shin */
 	String.fromCodePoint(0x1089D), /** #29 𐢝 U+1089D NABATEAEN LETTER Shin */
-	String.fromCodePoint(0x1089F), /** #30 𐢞 U+1089E NABATEAEN LETTER Taw */
+	String.fromCodePoint(0x1089E), /** #30 𐢞 U+1089E NABATEAEN LETTER Taw */
 ] as const
 
 export const Na = {

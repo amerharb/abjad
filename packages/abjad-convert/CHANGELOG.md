@@ -1,6 +1,14 @@
 # abjad-convert Changelog
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.12.1] 2026-06-29
+### Fixed
+- Nabataean letter Taw now maps to the correct code point U+1089E (was U+1089F)
+### Docs
+- Corrected the U+ reference comments for the Hanifi Rohingya digits (were U+10D28–U+10D31; the code points were already correct at U+10D30–U+10D39)
+- Corrected the glyph characters shown in the Old South Arabian letter comments (they showed characters from the Rumi Numeral Symbols block; the code points were already correct)
+- Corrected the glyph characters shown in the Tifinagh Separator Mark and Consonant Joiner comments (the code points were already correct)
+
 ## [0.12.0] 2025-03-16
 ### Added
 - Support for Hebrew

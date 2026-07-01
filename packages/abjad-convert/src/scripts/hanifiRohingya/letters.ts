@@ -46,16 +46,16 @@ const letters = [
 	String.fromCodePoint(0x10D26), /** #38 𐴦 U+10D26 HANIFI ROHINGYA SIGN TANA */
 	String.fromCodePoint(0x10D27), /** #39 𐴧 U+10D27 HANIFI ROHINGYA SIGN TASSI */
 
-	String.fromCodePoint(0x10D30), /** #40 𐴰 U+10D28 HANIFI ROHINGYA DIGIT ZERO */
-	String.fromCodePoint(0x10D31), /** #41 𐴱 U+10D29 HANIFI ROHINGYA DIGIT ONE */
-	String.fromCodePoint(0x10D32), /** #42 𐴲 U+10D2A HANIFI ROHINGYA DIGIT TWO */
-	String.fromCodePoint(0x10D33), /** #43 𐴳 U+10D2B HANIFI ROHINGYA DIGIT THREE */
-	String.fromCodePoint(0x10D34), /** #44 𐴴 U+10D2C HANIFI ROHINGYA DIGIT FOUR */
-	String.fromCodePoint(0x10D35), /** #45 𐴵 U+10D2D HANIFI ROHINGYA DIGIT FIVE */
-	String.fromCodePoint(0x10D36), /** #46 𐴶 U+10D2E HANIFI ROHINGYA DIGIT SIX */
-	String.fromCodePoint(0x10D37), /** #47 𐴷 U+10D2F HANIFI ROHINGYA DIGIT SEVEN */
-	String.fromCodePoint(0x10D38), /** #48 𐴸 U+10D30 HANIFI ROHINGYA DIGIT EIGHT */
-	String.fromCodePoint(0x10D39), /** #49 𐴹 U+10D31 HANIFI ROHINGYA DIGIT NINE */
+	String.fromCodePoint(0x10D30), /** #40 𐴰 U+10D30 HANIFI ROHINGYA DIGIT ZERO */
+	String.fromCodePoint(0x10D31), /** #41 𐴱 U+10D31 HANIFI ROHINGYA DIGIT ONE */
+	String.fromCodePoint(0x10D32), /** #42 𐴲 U+10D32 HANIFI ROHINGYA DIGIT TWO */
+	String.fromCodePoint(0x10D33), /** #43 𐴳 U+10D33 HANIFI ROHINGYA DIGIT THREE */
+	String.fromCodePoint(0x10D34), /** #44 𐴴 U+10D34 HANIFI ROHINGYA DIGIT FOUR */
+	String.fromCodePoint(0x10D35), /** #45 𐴵 U+10D35 HANIFI ROHINGYA DIGIT FIVE */
+	String.fromCodePoint(0x10D36), /** #46 𐴶 U+10D36 HANIFI ROHINGYA DIGIT SIX */
+	String.fromCodePoint(0x10D37), /** #47 𐴷 U+10D37 HANIFI ROHINGYA DIGIT SEVEN */
+	String.fromCodePoint(0x10D38), /** #48 𐴸 U+10D38 HANIFI ROHINGYA DIGIT EIGHT */
+	String.fromCodePoint(0x10D39), /** #49 𐴹 U+10D39 HANIFI ROHINGYA DIGIT NINE */
 ] as const
 
 export const HR = {
