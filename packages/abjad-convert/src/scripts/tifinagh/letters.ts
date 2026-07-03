@@ -59,8 +59,8 @@ const letters = [
 	String.fromCodePoint(0x2d66), /** #54 ⵦ U+2D66 TIFINAGH LETTER YE */
 	String.fromCodePoint(0x2d67), /** #55 ⵧ U+2D67 TIFINAGH LETTER YO */
 	String.fromCodePoint(0x2d6f), /** #56 ⵯ U+2D6F TIFINAGH MODIFIER LETTER LABIALIZATION MARK */
-	String.fromCodePoint(0x2d70), /** #54 ⵯ U+2D70 TIFINAGH SEPARATOR MARK */
-	String.fromCodePoint(0x2d7f), /** #55 ⵯ U+2D7F TIFINAGH CONSONANT JOINER */
+	String.fromCodePoint(0x2d70), /** #54 ⵰ U+2D70 TIFINAGH SEPARATOR MARK */
+	String.fromCodePoint(0x2d7f), /** #55 ⵿ U+2D7F TIFINAGH CONSONANT JOINER */
 ] as const
 
 export const Ti = {
