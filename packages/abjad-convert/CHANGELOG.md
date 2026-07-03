@@ -1,7 +1,7 @@
 # abjad-convert Changelog
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
-## [0.12.1] 2026-06-29
+## [0.12.2] 2026-06-29
 ### Fixed
 - Nabataean letter Taw now maps to the correct code point U+1089E (was U+1089F)
 ### Docs
