@@ -2,6 +2,10 @@
 
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.12.2] 2026-07-03
+### Changed
+- Use abjad-convert v0.12.2
+
 ## [0.12.1] 2026-06-29
 ### Changed
 - Use abjad-convert v0.12.0
