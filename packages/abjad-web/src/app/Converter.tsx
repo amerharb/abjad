@@ -24,6 +24,7 @@ const selectStyles = {
 const options = [
 	{ value: Abjad.IPA, label: 'IPA' },
 	{ value: Abjad.Arabic, label: 'Arabic ابجد' },
+	{ value: Abjad.Hangul, label: 'Hangul ㄱㄴㄷㄹ' },
 	{ value: Abjad.HanifiRohingya, label: 'HanifiRohingya 𐴀𐴁𐴅𐴊' },
 	{ value: Abjad.Hebrew, label: 'Hebrew אבגדה' },
 	{ value: Abjad.ImperialAramaic, label: 'Imperial Aramaic 𐡀𐡁𐡂𐡃' },
