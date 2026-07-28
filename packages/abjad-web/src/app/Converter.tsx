@@ -7,6 +7,28 @@ import OnScreenKeyboard from '@/components/OnScreenKeyboard'
 import ThemeToggle from '@/components/ThemeToggle'
 import Image from 'next/image'
 
+// How long the copy button shows the "copied" checkmark before reverting.
+const COPIED_RESET_MS = 1500
+
+function CopyIcon() {
+	return (
+		<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+			strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+			<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+			<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+		</svg>
+	)
+}
+
+function CheckIcon() {
+	return (
+		<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+			strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+			<polyline points="20 6 9 17 4 12"/>
+		</svg>
+	)
+}
+
 // Theme react-select via CSS variables so its control/menu follow the color scheme.
 const selectStyles = {
 	control: (base) => ({ ...base, backgroundColor: 'var(--surface)', borderColor: 'var(--border)' }),
@@ -109,6 +131,16 @@ export default function Converter({ from, to, text }: { from?: string; to?: stri
 	})
 	const [fromValue, setFromValue] = useState<Abjad | undefined>(initialFrom)
 	const [toValue, setToValue] = useState<Abjad | undefined>(initialTo)
+	const [copied, setCopied] = useState(false)
+
+	function copyResult() {
+		navigator.clipboard.writeText(resultText).then(() => {
+			setCopied(true)
+			setTimeout(() => setCopied(false), COPIED_RESET_MS)
+		}).catch(() => {
+			// Clipboard may be unavailable (e.g. insecure context); silently ignore.
+		})
+	}
 
 	return (
 		<main style={{ textAlign: 'center', padding: '20px' }}>
@@ -179,6 +211,18 @@ export default function Converter({ from, to, text }: { from?: string; to?: stri
 				>
 					{resultText}
 				</span>
+				{resultText !== '' && (
+					<button
+						type="button"
+						className="copy-btn"
+						title="Copy to clipboard"
+						aria-label="Copy result to clipboard"
+						style={copied ? { color: '#3fb950' } : undefined}
+						onClick={copyResult}
+					>
+						{copied ? <CheckIcon/> : <CopyIcon/>}
+					</button>
+				)}
 			</div>
 			<hr/>
 			<div style={{ marginTop: '20px', fontSize: '22px' }}>

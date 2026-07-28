@@ -15,6 +15,9 @@
 	--button-bg: light-dark(#f0f0f0, #2a2a2a);
 	--button-fg: light-dark(#1a1a1a, #e6e6e6);
 	--key-special-bg: light-dark(lightsteelblue, #3a4d6b);
+	--key-hover-bg: light-dark(#cfe0f5, #3d4a5c);
+	--key-hover-border: light-dark(#7aa4d8, #5f7fa8);
+	--key-special-hover-bg: light-dark(#93b3d8, #4a627f);
 	--link: light-dark(#0066cc, #6db3f2);
 }
 
@@ -39,6 +42,52 @@ button {
 
 button:hover {
 	background-color: var(--surface-hover);
+}
+
+/*
+ * On-screen keyboard keys. The highlight lives here rather than in an inline style so
+ * that :hover can actually take effect — an inline background would always win over it.
+ */
+.key {
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.key:hover {
+	background-color: var(--key-hover-bg);
+	border-color: var(--key-hover-border);
+}
+
+.key:active {
+	transform: translateY(1px);
+}
+
+.key-special {
+	background-color: var(--key-special-bg);
+}
+
+.key-special:hover {
+	background-color: var(--key-special-hover-bg);
+}
+
+/* Small icon-only button for copying the result to the clipboard. */
+.copy-btn {
+	background: none;
+	border: none;
+	color: var(--muted);
+	padding: 4px;
+	border-radius: 6px;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+}
+
+.copy-btn:hover {
+	background-color: var(--surface-hover);
+	color: var(--fg);
 }
 
 textarea,

@@ -12,6 +12,8 @@ const OnScreenKeyboard: FC<Props> = ({ letters, onClickLetter, onBackSpace, onCl
 		{letters.map((letter, index) =>
 			<button
 				key={`btn_letter${index}`}
+				className="key"
+				title={letter}
 				style={{ marginLeft: '1px', fontSize: '18px' }}
 				onClick={() => onClickLetter(letter)}>
 				{letter}
@@ -19,17 +21,23 @@ const OnScreenKeyboard: FC<Props> = ({ letters, onClickLetter, onBackSpace, onCl
 		}
 		<button
 			key={`btn_space`}
-			style={{ marginLeft: '10px', backgroundColor: 'var(--key-special-bg)' }}
+			className="key key-special"
+			title="Space"
+			style={{ marginLeft: '10px' }}
 			onClick={() => onClickLetter(' ')}>␣
 		</button>
 		<button
 			key={`btn_backSpace`}
-			style={{ marginLeft: '2px', backgroundColor: 'var(--key-special-bg)' }}
+			className="key key-special"
+			title="Backspace"
+			style={{ marginLeft: '2px' }}
 			onClick={onBackSpace}>&#x232B;
 		</button>
 		<button
 			key={`btn_clearAll`}
-			style={{ marginLeft: '2px', backgroundColor: 'var(--key-special-bg)' }}
+			className="key key-special"
+			title="Clear all"
+			style={{ marginLeft: '2px' }}
 			onClick={onClearAll}>❌
 		</button>
 	</div>
