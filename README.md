@@ -14,7 +14,7 @@ This is a monorepo for the Abjad Convert project.
 <br>
 
 ### Abjad Web
-[![Version](https://img.shields.io/badge/version-0.12.1-blue.svg)](https://github.com/amerharb/abjad/tree/abjad-web/version/0.12.1)
+[![Version](https://img.shields.io/badge/version-0.13.0-blue.svg)](https://github.com/amerharb/abjad/tree/abjad-web/version/0.13.0)
 <br>
 [README](https://github.com/amerharb/abjad/blob/main/packages/abjad-web/README.md)
 

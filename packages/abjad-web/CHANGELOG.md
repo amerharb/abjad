@@ -2,6 +2,12 @@
 
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.13.0] 2026-07-28
+### Changed
+- Use abjad-convert v0.13.0-next.0
+### Added
+- Support Hangul
+
 ## [0.12.2] 2026-07-03
 ### Changed
 - Use abjad-convert v0.12.2
