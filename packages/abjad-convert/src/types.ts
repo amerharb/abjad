@@ -1,5 +1,6 @@
 export enum Abjad {
 	Arabic = 'arabic',
+	Hangul = 'hangul',
 	HanifiRohingya = 'hanifi-rohingya',
 	Hebrew = 'hebrew',
 	ImperialAramaic = 'imperial-aramaic',

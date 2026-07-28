@@ -1,6 +1,6 @@
 {
 	"name": "abjad-convert",
-	"version": "0.12.2-masked",
+	"version": "0.13.0",
 	"main": "dist/src/index.js",
 	"types": "dist/src/index.d.ts",
 	"files": [
@@ -23,6 +23,8 @@
 		"phonetic",
 		"transcription",
 		"arabic",
+		"hangul",
+		"korean",
 		"hanifi-rohingya",
 		"hebrew",
 		"imperial-aramaic",

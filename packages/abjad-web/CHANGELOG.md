@@ -2,6 +2,16 @@
 
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.13.0] 2026-07-28
+### Changed
+- Use abjad-convert v0.13.0-next.0
+### Added
+- Support Hangul
+- Highlight the on-screen keyboard key under the cursor
+- Copy button next to the result, with a brief checkmark confirmation
+### Fixed
+- The space, backspace and clear keys had no hover state, as their inline background overrode it
+
 ## [0.12.2] 2026-07-03
 ### Changed
 - Use abjad-convert v0.12.2

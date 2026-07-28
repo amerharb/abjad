@@ -4,6 +4,12 @@ import { describe, expect, it } from '@jest/globals'
 describe('index.ts', () => {
 	describe('convert()', () => {
 		describe('from Arabic', () => {
+			describe('to Hangul', () => {
+				it('convert ا ب ج into 아 브 즈', () => {
+					const actual = convert('ا ب ج', Abjad.Arabic, Abjad.Hangul)
+					expect(actual).toEqual('아 브 즈')
+				})
+			})
 			describe('to HanifiRohingya', () => {
 				it('convert ا ب ج into 𐴀 𐴁 𐴅', () => {
 					const actual = convert('ا ب ج', Abjad.Arabic, Abjad.HanifiRohingya)
@@ -59,6 +65,20 @@ describe('index.ts', () => {
 				})
 			})
 		})
+		describe('from Hangul', () => {
+			describe('to Arabic', () => {
+				it('convert 한국 into هانگوك', () => {
+					const actual = convert('한국', Abjad.Hangul, Abjad.Arabic)
+					expect(actual).toEqual('هانگوك')
+				})
+			})
+			describe('to IPA', () => {
+				it('convert 한국 into hanɡuk', () => {
+					const actual = convert('한국', Abjad.Hangul, Abjad.IPA)
+					expect(actual).toEqual('hanɡuk')
+				})
+			})
+		})
 		describe('from HanifiRohingya', () => {
 			describe('to Arabic', () => {
 				it('convert 𐴀 𐴁 𐴅 into ا ب ج', () => {
@@ -104,6 +124,12 @@ describe('index.ts', () => {
 				it('convert a b ʒ into ا ب ج', () => {
 					const actual = convert('a b ʒ', Abjad.IPA, Abjad.Arabic)
 					expect(actual).toEqual('ا ب ج')
+				})
+			})
+			describe('to Hangul', () => {
+				it('convert hanɡuɡ into 한국', () => {
+					const actual = convert('hanɡuɡ', Abjad.IPA, Abjad.Hangul)
+					expect(actual).toEqual('한국')
 				})
 			})
 		})

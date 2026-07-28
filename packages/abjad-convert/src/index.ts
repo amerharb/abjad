@@ -1,6 +1,7 @@
 import { getConverter } from './converterFactory'
 import { Abjad } from './types'
 import { arabic } from './scripts/arabic/letters'
+import { hangul } from './scripts/hangul/letters'
 import { hanifiRohingya } from './scripts/hanifiRohingya/letters'
 import { hebrew } from './scripts/hebrew/letters'
 import { imperialAramaic } from './scripts/imperialAramaic/letters'
@@ -27,6 +28,8 @@ export function getLetters(script: Abjad): readonly string[] {
 	switch (script) {
 	case Abjad.Arabic:
 		return arabic.letters
+	case Abjad.Hangul:
+		return hangul.letters
 	case Abjad.HanifiRohingya:
 		return hanifiRohingya.letters
 	case Abjad.Hebrew:
