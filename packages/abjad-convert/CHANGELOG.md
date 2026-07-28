@@ -2,7 +2,10 @@
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
 ## [0.13.0] 2026-07-26
-
+### Added
+- Support for Hangul, the Korean script, including composing letters into syllable blocks
+- Converter from IPA to Hangul
+- Converter from Hangul to IPA, which also makes Hangul reachable from every other script through IPA
 
 ## [0.12.2] 2026-06-29
 ### Fixed

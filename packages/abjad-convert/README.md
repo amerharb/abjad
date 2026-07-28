@@ -9,6 +9,7 @@
 
 Current supported alphabets:
 - Arabic
+- Hangul (the Korean script)
 - Hanifi Rohingya
 - Hebrew
 - Imperial Aramaic
@@ -32,6 +33,9 @@ Type Script:
 import { convert, Abjad } from 'abjad-convert';
 
 const arabicWord = 'مرحبا';
+
+const hangulWord = convert(arabicWord, Abjad.Arabic, Abjad.Hangul);
+console.log(hangulWord); // 므르흐바
 
 const hanifiRohingyaWord = convert(arabicWord, Abjad.Arabic, Abjad.HanifiRohingya);
 console.log(hanifiRohingyaWord); // 𐴔𐴌𐴇𐴁𐴀
@@ -66,5 +70,28 @@ console.log(tifinaghWord); // ⵎⵔⵃⴱⴰ
 const ugariticWord = convert(arabicWord, Abjad.Arabic, Abjad.Ugaritic);
 console.log(ugariticWord); // 𐎎𐎗𐎈𐎁𐎀
 ```
+
+### Hangul
+Hangul is not written as a run of letters: its letters are packed into syllable blocks, so
+the sounds are grouped into syllables before being written.
+
+```js
+import { convert, Abjad } from 'abjad-convert';
+
+console.log(convert('hanɡuk', Abjad.IPA, Abjad.Hangul)); // 한국
+console.log(convert('sʌul', Abjad.IPA, Abjad.Hangul));   // 서울
+console.log(convert('u', Abjad.IPA, Abjad.Hangul));      // 우, a syllable with no initial takes ㅇ
+console.log(convert('stɹaik', Abjad.IPA, Abjad.Hangul)); // 스트라익, clusters take the filler vowel ㅡ
+console.log(convert('ɡɹæf', Abjad.IPA, Abjad.Hangul));   // 그래프, ㅍ cannot close a syllable
+
+console.log(convert('한국', Abjad.Hangul, Abjad.IPA));    // hanɡuk
+```
+
+Korean contrasts plain, aspirated and tense consonants where IPA contrasts voiced and
+voiceless, so the loanword convention is followed: voiceless `/p t k/` become the aspirated
+`ㅍ ㅌ ㅋ` and voiced `/b d ɡ/` become the plain `ㅂ ㄷ ㄱ`. Native Korean words are therefore
+reached with the voiced symbols, and text round-trips through IPA unchanged. See
+[src/scripts/hangul/doc.md](src/scripts/hangul/doc.md) for the full letter tables.
+
 ## How to contribute
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct.
