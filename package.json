@@ -17,7 +17,7 @@
 		"start": "npm run start --workspaces --if-present"
 	},
 	"devDependencies": {
-		"@next/eslint-plugin-next": "^16.2.9",
+		"@next/eslint-plugin-next": "^16.4.3",
 		"@types/node": "^20.11.2",
 		"@typescript-eslint/eslint-plugin": "^8.62.0",
 		"@typescript-eslint/parser": "^8.62.0",

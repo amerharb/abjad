@@ -2,6 +2,13 @@
 
 <!-- https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.13.1] 2026-11-01
+### Changed
+- Use next v16.4.3, which fixes critical security advisories in v16.2.9
+- Use react-select v5.10.2
+### Fixed
+- Hydration mismatch on Apple devices: react-select v5.8.0 set the dropdowns' `aria-activedescendant` differently on the server and the client
+
 ## [0.13.0] 2026-07-28
 ### Changed
 - Use abjad-convert v0.13.0-next.0
